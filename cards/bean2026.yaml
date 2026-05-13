@@ -1,0 +1,41 @@
+benchmark_name: "nature_ai_medical_assistants"
+citation: "bean2026"
+
+intended_use_case:
+  answer: "LLM performance in identifying diagnosis and dispositions."
+  holds_at_deployment: >
+    Use case: patients interact with LLM as medical assistants.
+
+contextual:
+
+  query_authorship:
+    question: "Who created the examples, and what are their backgrounds?"
+    answer: >
+      Seven physicians with backgrounds in general practice and intensive care,
+      who averaged 24 years of experience. Three created questions; four reviewed.
+    holds_at_deployment: >
+      No. Patients generate queries themselves; expert curation does not reflect this.
+
+  information_completeness:
+    question: "Are examples information-complete?"
+    answer: "Yes. All examples contain sufficient information to answer the query."
+    holds_at_deployment: >
+      Partially. Patients may omit or misreport information.
+
+  interaction_type:
+    question: "Are examples single or multi-turn?"
+    answer: "Single-shot prompts only."
+    holds_at_deployment: "No. Deployment features multi-turn interactions."
+
+consequential:
+
+  decision_mediation:
+    question: "Does the benchmark treat LLM output as the final decision?"
+    answer: "Yes. The LLM decides directly; no human mediator is present."
+    holds_at_deployment: "No. Users make the final decisions, not the LLM."
+
+  outcome_validity:
+    question: "What outcome is measured?"
+    answer: "Rate at which the LLM selects the correct diagnosis or treatment."
+    holds_at_deployment: >
+      No. Real outcome depends on user uptake, not LLM accuracy alone.

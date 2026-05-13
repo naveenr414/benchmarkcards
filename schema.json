@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BenchmarkCard",
+    "description": "Structured documentation for healthcare LLM benchmark assumptions (Raman et al., 2025).",
+    "type": "object",
+    "required": ["benchmark_name", "citation", "intended_use_case"],
+    "additionalProperties": false,
+    "properties": {
+      "benchmark_name": { "type": "string" },
+      "citation":        { "type": "string" },
+      "version":         { "type": "string" },
+  
+      "intended_use_case": {
+        "type": "object",
+        "required": ["answer"],
+        "additionalProperties": false,
+        "properties": {
+          "answer":              { "type": "string" },
+          "deployment_context":  { "type": "string" }
+        }
+      },
+  
+      "contextual": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query_authorship": {
+            "$ref": "#/definitions/assumption_contextual"
+          },
+          "information_completeness": {
+            "$ref": "#/definitions/assumption_contextual"
+          },
+          "interaction_type": {
+            "allOf": [{ "$ref": "#/definitions/assumption_contextual" }],
+            "properties": {
+              "answer": {
+                "enum": ["single-turn", "multi-turn", "both", "single-turn (single-shot)"]
+              }
+            }
+          }
+        }
+      },
+  
+      "consequential": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "decision_mediation": {
+            "$ref": "#/definitions/assumption_consequential"
+          },
+          "outcome_validity": {
+            "$ref": "#/definitions/assumption_consequential"
+          }
+        }
+      },
+  
+      "notes": { "type": "string" }
+    },
+  
+    "definitions": {
+      "assumption_contextual": {
+        "type": "object",
+        "required": ["question", "answer"],
+        "additionalProperties": false,
+        "properties": {
+          "question":             { "type": "string" },
+          "answer":               { "type": "string" },
+          "holds_at_deployment":  { "type": "string" }
+        }
+      },
+      "assumption_consequential": {
+        "type": "object",
+        "required": ["question", "answer"],
+        "additionalProperties": false,
+        "properties": {
+          "question":             { "type": "string" },
+          "answer":               { "type": "string" },
+          "holds_at_deployment":  { "type": "string" }
+        }
+      }
+    }
+  }
+  

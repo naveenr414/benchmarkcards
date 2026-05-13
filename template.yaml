@@ -1,0 +1,60 @@
+# BenchmarkCard template
+#
+# Two halves:
+#   - Left column (benchmark designers fill once at publication time):
+#       intended_use_case.answer, and each assumption's question + answer
+#   - Right column (practitioners fill per deployment context):
+#       intended_use_case.deployment_context, and each assumption's holds_at_deployment
+#
+# Copy to cards/<benchmark_name>.yaml and fill in all fields.
+# Fields marked (required) must be completed; others are recommended.
+
+benchmark_name:   # (required) e.g. "MedQA"
+citation:         # (required) BibTeX key or DOI
+version:          # dataset version or date accessed
+
+# ── Intended use case ─────────────────────────────────────────────────────
+intended_use_case:
+  answer:               # (required) what clinical task is this benchmark designed to evaluate?
+  deployment_context:   # what is the actual deployment context being assessed?
+
+# ── Contextual assumptions ────────────────────────────────────────────────
+# Assumptions about the conditions under which the system is used:
+# query authorship, information completeness, interaction format.
+# These are testable from interaction data.
+
+contextual:
+
+  query_authorship:
+    question: "Who created the examples, and what are their backgrounds?"
+    answer:               # who wrote the queries and what expertise did they have?
+    holds_at_deployment:  # does this match who generates queries at deployment?
+
+  information_completeness:
+    question: "Are examples information-complete?"
+    answer:               # are benchmark queries assumed to contain all relevant information?
+    holds_at_deployment:  # will deployment queries be equally complete?
+
+  interaction_type:
+    question: "Are examples single or multi-turn?"
+    answer:               # single-shot / multi-turn / both
+    holds_at_deployment:  # what format does real deployment use?
+
+# ── Consequential assumptions ─────────────────────────────────────────────
+# Assumptions about how LLM output integrates into decisions and what outcomes
+# are measured. Testing these requires behavioral experiments.
+
+consequential:
+
+  decision_mediation:
+    question: "Does the benchmark treat LLM output as the final decision?"
+    answer:               # is there a human mediator, or does the LLM decide directly?
+    holds_at_deployment:  # who actually makes the final decision at deployment?
+
+  outcome_validity:
+    question: "What outcome is measured?"
+    answer:               # what metric does the benchmark use?
+    holds_at_deployment:  # does this metric track the true deployment outcome?
+
+# ── Notes ─────────────────────────────────────────────────────────────────
+notes:  # anything that doesn't fit the fields above

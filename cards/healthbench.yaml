@@ -1,0 +1,40 @@
+benchmark_name: "openai_healthbench"
+citation: "healthbench"
+
+intended_use_case:
+  answer: "LLM performance at providing medical advice given information."
+  holds_at_deployment: >
+    Use case: patients interact with LLM as medical assistants.
+
+contextual:
+
+  query_authorship:
+    question: "Who created the examples, and what are their backgrounds?"
+    answer: >
+      262 physicians from 60 countries with backgrounds 26 medical specialties. 
+    holds_at_deployment: >
+      No. Patients generate queries themselves; expert curation does not reflect this.
+
+  information_completeness:
+    question: "Are examples information-complete?"
+    answer: "Partially. Examples generally consist of sufficient detail to at least partially answer the query."
+    holds_at_deployment: >
+      Partially. Patients may omit or misreport information.
+
+  interaction_type:
+    question: "Are examples single or multi-turn?"
+    answer: "Single-shot prompts only."
+    holds_at_deployment: "No. Deployment features multi-turn interactions."
+
+consequential:
+
+  decision_mediation:
+    question: "Does the benchmark treat LLM output as the final decision?"
+    answer: "Partially. Answers are evaluated based on quality, rather than impact on human behavior."
+    holds_at_deployment: "No. Users make the final decisions, not the LLM; health decisions are not evaluated."
+
+  outcome_validity:
+    question: "What outcome is measured?"
+    answer: "Answers are compared with a rubric containing scores for items such as clarity and concision"
+    holds_at_deployment: >
+      Partial. Real outcome depends on users following and understanding output, not LLM answer quality alone.
