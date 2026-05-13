@@ -8,7 +8,7 @@ intended_use_case:
   deployment_context: >
     Use case: clinicians interact with LLMs iteratively to guide diagnosis and test ordering.
 
-contextual:
+task:
 
   query_authorship:
     question: "Who created the examples, and what are their backgrounds?"
@@ -34,7 +34,7 @@ contextual:
     holds_at_deployment: >
       No. Deployment features multi-turn interactions between clinicians and LLMs.
 
-consequential:
+outcome:
 
   decision_mediation:
     question: "Does the benchmark treat LLM output as the final decision?"

@@ -18,12 +18,12 @@ intended_use_case:
   answer:               # (required) what clinical task is this benchmark designed to evaluate?
   deployment_context:   # what is the actual deployment context being assessed?
 
-# ── Contextual assumptions ────────────────────────────────────────────────
+# ── Task assumptions ────────────────────────────────────────────────
 # Assumptions about the conditions under which the system is used:
 # query authorship, information completeness, interaction format.
 # These are testable from interaction data.
 
-contextual:
+task:
 
   query_authorship:
     question: "Who created the examples, and what are their backgrounds?"
@@ -40,11 +40,11 @@ contextual:
     answer:               # single-shot / multi-turn / both
     holds_at_deployment:  # what format does real deployment use?
 
-# ── Consequential assumptions ─────────────────────────────────────────────
+# ── Outcome assumptions ─────────────────────────────────────────────
 # Assumptions about how LLM output integrates into decisions and what outcomes
 # are measured. Testing these requires behavioral experiments.
 
-consequential:
+outcome:
 
   decision_mediation:
     question: "Does the benchmark treat LLM output as the final decision?"

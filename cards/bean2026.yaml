@@ -6,7 +6,7 @@ intended_use_case:
   holds_at_deployment: >
     Use case: patients interact with LLM as medical assistants.
 
-contextual:
+task:
 
   query_authorship:
     question: "Who created the examples, and what are their backgrounds?"
@@ -27,7 +27,7 @@ contextual:
     answer: "Single-shot prompts only."
     holds_at_deployment: "No. Deployment features multi-turn interactions."
 
-consequential:
+outcome:
 
   decision_mediation:
     question: "Does the benchmark treat LLM output as the final decision?"

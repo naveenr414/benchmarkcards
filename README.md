@@ -20,14 +20,15 @@ We show an example below:
 | Question | Assumption | Answer | Holds at deployment? |
 |---|---|---|---|
 | What is the intended use case? | — | LLM guidance to clinicians on which tests to run. | Use case: clinicians interact with LLMs iteratively. |
-| Who created the examples? | Contextual | Licensing board clinicians and teachers. | Partially. Queries differ from real patient scenarios. |
-| Are examples information-complete? | Contextual | Yes, all contain sufficient information. | No. Clinicians must gather information iteratively. |
-| Are examples single or multi-turn? | Contextual | Single-shot prompts only. | No. Deployment features multi-turn interactions. |
-| Does the benchmark treat LLM output as the final decision? | Consequential | Yes, the LLM decides directly. | No. Physicians retain discretion over diagnosis. |
-| What outcome is measured? | Consequential | Accuracy on licensing exam questions. | No. Real outcome is diagnosis on actual patient cases. |
+| Who created the examples? | Task | Licensing board clinicians and teachers. | Partially. Queries differ from real patient scenarios. |
+| Are examples information-complete? | Task | Yes, all contain sufficient information. | No. Clinicians must gather information iteratively. |
+| Are examples single or multi-turn? | Task | Single-shot prompts only. | No. Deployment features multi-turn interactions. |
+| Does the benchmark treat LLM output as the final decision? | Outcome | Yes, the LLM decides directly. | No. Physicians retain discretion over diagnosis. |
+| What outcome is measured? | Outcome | Accuracy on licensing exam questions. | No. Real outcome is diagnosis on actual patient cases. |
 
-The assumptions are split into two parts: **contextual** and **consequential**. 
-Contextual assumptions, such as interaction format and query authorship, Consequential assumptions (decision mediation, outcome validity) require behavioral experiments. 
+The assumptions are split into two parts: **task** and **outcome**. 
+Task assumptions, such as interaction format and query authorship, can be addressed through modifications to benchmarks.
+Outcome assumptions, such as decision mediation and outcome validity, require behavioral experiments. 
 The two types of assumptions make clear which gaps can be bridged from benchmarks alone and which requires additional real-world experiments. 
 
 ## Filling out a Card

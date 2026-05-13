@@ -20,18 +20,18 @@
         }
       },
   
-      "contextual": {
+      "task": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "query_authorship": {
-            "$ref": "#/definitions/assumption_contextual"
+            "$ref": "#/definitions/assumption_task"
           },
           "information_completeness": {
-            "$ref": "#/definitions/assumption_contextual"
+            "$ref": "#/definitions/assumption_task"
           },
           "interaction_type": {
-            "allOf": [{ "$ref": "#/definitions/assumption_contextual" }],
+            "allOf": [{ "$ref": "#/definitions/assumption_task" }],
             "properties": {
               "answer": {
                 "enum": ["single-turn", "multi-turn", "both", "single-turn (single-shot)"]
@@ -41,15 +41,15 @@
         }
       },
   
-      "consequential": {
+      "outcome": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "decision_mediation": {
-            "$ref": "#/definitions/assumption_consequential"
+            "$ref": "#/definitions/assumption_outcome"
           },
           "outcome_validity": {
-            "$ref": "#/definitions/assumption_consequential"
+            "$ref": "#/definitions/assumption_outcome"
           }
         }
       },
@@ -58,7 +58,7 @@
     },
   
     "definitions": {
-      "assumption_contextual": {
+      "assumption_task": {
         "type": "object",
         "required": ["question", "answer"],
         "additionalProperties": false,
@@ -68,7 +68,7 @@
           "holds_at_deployment":  { "type": "string" }
         }
       },
-      "assumption_consequential": {
+      "assumption_outcome": {
         "type": "object",
         "required": ["question", "answer"],
         "additionalProperties": false,
