@@ -1,29 +1,21 @@
-# BenchmarkCards for Healthcare LLMs
+# BenchmarkCards for LLMs
+This repository introduces **BenchmarkCards**, a structured documentation templates that make these assumptions explicit. 
+The format is adapted from Model Cards and Datasheets,but targeted specifically at the connection between evaluation conditions and deployment
+conditions. 
 
-Healthcare LLM benchmarks report accuracy. They rarely report what they assume.
+The full argument is in our paper:
 
-A model that scores 95% on a medical benchmark and 35% when deployed with real patients
-is not a flawed model — it is a model evaluated under assumptions that do not hold in
-deployment. The gap is not random noise; it traces to specific, documentable assumptions
-about who writes the queries, whether interactions are single or multi-turn, and whether
-LLM output translates into human action.
-
-This repository introduces **BenchmarkCards**: structured documentation templates that
-make these assumptions explicit. The format is adapted from Model Cards and Datasheets,
-but targeted specifically at the connection between evaluation conditions and deployment
-conditions. The full argument is in our paper:
-
-> **Position: Healthcare LLM Benchmarks Are Necessary but Not Sufficient: The Case for Assumption-Explicit Evaluation**  
-> Naveen Raman et al., NeurIPS 2025  
-> [arXiv:XXXX.XXXXX]
+> **Healthcare LLM Benchmarks Are Necessary but Not Sufficient: The Case for Assumption-Explicit Evaluation**  
+> [ArXiv link](google.com) 
 
 ---
 
 ## What a BenchmarkCard looks like
 
-Each card has two halves. Benchmark designers fill the left side once, at publication time.
-Practitioners fill the right side when they want to deploy the benchmark's findings in a
-specific context.
+Each card consists of two parts. 
+One part is for the Benchmark designer, with information on the assumptions separating evaluation and deployment. 
+The other part is for practitioners, who identify whether the assumptions hold true in reality. 
+We show an example below: 
 
 | Question | Assumption | Answer | Holds at deployment? |
 |---|---|---|---|
@@ -34,38 +26,22 @@ specific context.
 | Does the benchmark treat LLM output as the final decision? | Consequential | Yes, the LLM decides directly. | No. Physicians retain discretion over diagnosis. |
 | What outcome is measured? | Consequential | Accuracy on licensing exam questions. | No. Real outcome is diagnosis on actual patient cases. |
 
-The distinction between **contextual** and **consequential** assumptions matters because
-they require different tests. Contextual assumptions (query authorship, interaction format,
-information completeness) are testable from interaction data. Consequential assumptions
-(decision mediation, outcome validity) require behavioral experiments to quantify.
+The assumptions are split into two parts: **contextual** and **consequential**. 
+Contextual assumptions, such as interaction format and query authorship, Consequential assumptions (decision mediation, outcome validity) require behavioral experiments. 
+The two types of assumptions make clear which gaps can be bridged from benchmarks alone and which requires additional real-world experiments. 
+
+## Filling out a Card
+To fill out a card, copy `template.yaml` and fill in the fields. 
 
 ---
 
 ## Cards in this repository
 
-| Benchmark | Contextual assumptions documented | Consequential assumptions documented |
-|---|---|---|
-| [nature_ai_medical_assistants](cards/nature_ai_medical_assistants.yaml) | ✓ | ✓ |
-| [limitations_evaluation_medicine](cards/limitations_evaluation_medicine.yaml) | ✓ | ✓ |
-
----
-
-## Adding a card
-
-Copy `template.yaml` to `cards/<your_benchmark>.yaml` and fill in the fields. The left
-column (benchmark designer half) documents what the benchmark assumes. The right column
-(`holds_at_deployment`) is optional at first — it can be filled later by practitioners
-assessing fit for a specific deployment.
-
-```bash
-cp template.yaml cards/your_benchmark.yaml
-# fill in the fields, then open a pull request
-```
-
-Cards are validated against `schema.json` on pull request. The required fields are
-`benchmark_name`, `citation`, and `intended_use_case.answer`. Everything else is
-recommended but not enforced, since incomplete documentation is more useful than none.
-
+| Benchmark | Location |
+|---|---|
+| [Bean et al. 2026](https://www.nature.com/articles/s41591-025-04074-y) | `cards/bean2026.yaml`|
+| [Hager et al. 2024](https://www.nature.com/articles/s41591-024-03097-1) |`cards/hager2024.yaml`|
+| [HealthBench](https://openai.com/index/healthbench/) |`cards/healthbench.yaml`|
 ---
 
 ## Citation
