@@ -32,6 +32,7 @@ Outcome assumptions, such as decision mediation and outcome validity, require be
 The two types of assumptions make clear which gaps can be bridged from benchmarks alone and which requires additional real-world experiments. 
 
 ## Filling out a Card
+
 To fill out a card, copy `template.yaml` and fill in the fields. 
 The "Holds at Deployment?" field should be filled out by practitioners, while the remaining fields should be completed by benchmark designers. 
 ---
