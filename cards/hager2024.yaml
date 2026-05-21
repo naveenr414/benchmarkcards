@@ -15,37 +15,23 @@ task:
     answer: >
       Examples come from central licensing boards, generally consisting of clinicians
       and teachers. Specific dates are not mentioned.
-    holds_at_deployment: >
-      Partially. Licensing boards have clinical expertise, but queries differ from
-      real patient scenarios.
 
   information_completeness:
     question: "Are examples information-complete?"
     answer: >
       Yes. All examples contain sufficient information to be answered based only
       on the query.
-    holds_at_deployment: >
-      No. In practice, clinicians do not have access to all information upfront
-      and must interact iteratively.
 
   interaction_type:
     question: "Are examples single or multi-turn?"
     answer: "Single-shot prompts only."
-    holds_at_deployment: >
-      No. Deployment features multi-turn interactions between clinicians and LLMs.
 
 outcome:
 
   decision_mediation:
     question: "Does the benchmark treat LLM output as the final decision?"
     answer: "Yes. The LLM makes the final decision directly."
-    holds_at_deployment: >
-      No. Physicians retain discretion over which tests to run and how to
-      diagnose patients.
 
   outcome_validity:
     question: "What outcome is measured?"
     answer: "Accuracy on licensing exam questions."
-    holds_at_deployment: >
-      No. Real outcome is diagnosis ability and lab test interpretation on
-      actual patient cases.

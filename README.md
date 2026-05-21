@@ -33,7 +33,7 @@ The two types of assumptions make clear which gaps can be bridged from benchmark
 
 ## Filling out a Card
 To fill out a card, copy `template.yaml` and fill in the fields. 
-
+The "Holds at Deployment?" field should be filled out by practitioners, while the remaining fields should be completed by benchmark designers. 
 ---
 
 ## Cards in this repository
