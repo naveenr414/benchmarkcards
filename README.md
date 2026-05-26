@@ -6,7 +6,7 @@ conditions.
 The full argument is in our paper:
 
 > **Healthcare LLM Benchmarks Are Necessary but Not Sufficient: The Case for Assumption-Explicit Evaluation**  
-> [ArXiv link](google.com) 
+> [ArXiv link](https://arxiv.org/abs/2605.22612) 
 
 ---
 
@@ -49,5 +49,10 @@ The "Holds at Deployment?" field should be filled out by practitioners, while th
 ## Citation
 
 ```bibtex
-hi
+@article{raman2026healthcare,
+  title={Healthcare LLM Benchmarks Are Only as Good as Their Explicit Assumptions},
+  author={Raman, Naveen and Cortes-Gomez, Santiago and Rubio, Mateo Dulce and Fang, Fei and Wilder, Bryan},
+  journal={arXiv preprint arXiv:2605.22612},
+  year={2026}
+}
 ```
